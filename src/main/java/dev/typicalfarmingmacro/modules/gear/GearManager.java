@@ -5,6 +5,7 @@ import dev.typicalfarmingmacro.config.TfmConfig;
 import dev.typicalfarmingmacro.macro.MacroWorkerThread;
 import dev.typicalfarmingmacro.mixin.AccessorInventory;
 import dev.typicalfarmingmacro.modules.failsafe.FailsafeManager;
+import dev.typicalfarmingmacro.modules.farming.FarmingTools;
 import dev.typicalfarmingmacro.util.ClientUtils;
 
 import net.minecraft.client.Minecraft;
@@ -201,7 +202,7 @@ public class GearManager {
         for (int i = 0; i < 9; i++) {
             ItemStack stack = client.player.getInventory().getItem(i);
             if (stack.isEmpty()) continue;
-            if (isFarmingToolName(stack.getHoverName().getString().toLowerCase())) {
+            if (FarmingTools.isFarmingTool(stack)) {
                 return i;
             }
         }
@@ -231,12 +232,6 @@ public class GearManager {
             }
         }
         return -1;
-    }
-
-    private static boolean isFarmingToolName(String name) {
-        return name.contains("hoe") || name.contains("dicer") || name.contains("knife") || 
-               name.contains("chopper") || name.contains("cutter") || name.contains("fungi") ||
-               name.contains("gauntlet") || name.contains("axe");
     }
 
     public static void swapToAOTV(Minecraft client) {

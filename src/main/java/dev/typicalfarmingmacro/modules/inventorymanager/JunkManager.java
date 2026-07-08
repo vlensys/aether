@@ -10,12 +10,12 @@ import dev.typicalfarmingmacro.util.ClientUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
+import dev.typicalfarmingmacro.modules.farming.FarmingTools;
 import dev.typicalfarmingmacro.modules.gear.GearManager;
 import dev.typicalfarmingmacro.modules.gear.helpers.LoadoutManager;
 import dev.typicalfarmingmacro.modules.pest.PestManager;
@@ -123,24 +123,12 @@ public class JunkManager {
         return count;
     }
 
-    private static boolean isFarmingTool(ItemStack stack) {
-        if (stack == null || stack.isEmpty())
-            return false;
-        String[] keywords = { "hoe", "dicer", "knife", "chopper", "cutter", "axe" };
-        String name = stack.getHoverName().getString().toLowerCase();
-        for (String kw : keywords) {
-            if (name.contains(kw))
-                return true;
-        }
-        return false;
-    }
-
     private static boolean isJunkItem(ItemStack stack, List<String> junkList) {
         if (stack == null || stack.isEmpty())
             return false;
 
         // Exclude farming tools - they can be enchanted with junk items
-        if (isFarmingTool(stack))
+        if (FarmingTools.isFarmingTool(stack))
             return false;
 
         // Check Display Name
