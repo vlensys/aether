@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/src/main/resources/assets/aether/icons/logo.svg" width="128" alt="Oxygen logo">
+  <img src="/src/main/resources/assets/aether/icons/logo.svg" width="128" alt="Aether logo">
 </p>
 
 <h1 align="center">aether</h1>
