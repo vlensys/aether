@@ -1,6 +1,7 @@
 package dev.aether.ui;
 
 import dev.aether.config.AetherConfig;
+import dev.aether.modules.discord.DiscordRemoteControlManager;
 import dev.aether.ui.settings.ModulesTab;
 import dev.aether.ui.settings.SettingGroup;
 import dev.aether.ui.settings.TextSetting;
@@ -21,6 +22,7 @@ public final class RemoteControlSettingsRegistryProvider extends AbstractSetting
                 v -> {
                     AetherConfig.REMOTE_CONTROL_ENABLED.set(v);
                     AetherConfig.save();
+                    DiscordRemoteControlManager.restartFromConfig();
                 });
 
         remoteControl.add(new TextSetting("Bot Token", "Paste Discord bot token",
@@ -28,6 +30,7 @@ public final class RemoteControlSettingsRegistryProvider extends AbstractSetting
                 v -> {
                     AetherConfig.REMOTE_CONTROL_BOT_TOKEN.set(v.trim());
                     AetherConfig.save();
+                    DiscordRemoteControlManager.restartFromConfig();
                 })
                 .visibleWhen(() -> AetherConfig.REMOTE_CONTROL_ENABLED.get()));
         remoteControl.add(new TextSetting("Server ID", "Discord server ID",
@@ -35,6 +38,7 @@ public final class RemoteControlSettingsRegistryProvider extends AbstractSetting
                 v -> {
                     AetherConfig.REMOTE_CONTROL_GUILD_ID.set(v.trim());
                     AetherConfig.save();
+                    DiscordRemoteControlManager.restartFromConfig();
                 })
                 .visibleWhen(() -> AetherConfig.REMOTE_CONTROL_ENABLED.get()));
         remoteControl.add(new TextSetting("Channel ID", "Discord channel ID",
@@ -42,6 +46,7 @@ public final class RemoteControlSettingsRegistryProvider extends AbstractSetting
                 v -> {
                     AetherConfig.REMOTE_CONTROL_CHANNEL_ID.set(v.trim());
                     AetherConfig.save();
+                    DiscordRemoteControlManager.restartFromConfig();
                 })
                 .visibleWhen(() -> AetherConfig.REMOTE_CONTROL_ENABLED.get()));
         remoteControl.add(new TextSetting("Command Prefix", "!aether",
@@ -50,6 +55,7 @@ public final class RemoteControlSettingsRegistryProvider extends AbstractSetting
                     String prefix = v == null ? "" : v.trim();
                     AetherConfig.REMOTE_CONTROL_COMMAND_PREFIX.set(prefix.isBlank() ? "!aether" : prefix);
                     AetherConfig.save();
+                    DiscordRemoteControlManager.restartFromConfig();
                 })
                 .visibleWhen(() -> AetherConfig.REMOTE_CONTROL_ENABLED.get()));
 
