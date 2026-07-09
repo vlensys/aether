@@ -88,7 +88,6 @@ public final class SkinFaceProvider {
                 writeCell(buf, sx, sy, rgba);
             }
         }
-        buf.flip();
         return buf;
     }
 
