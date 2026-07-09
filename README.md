@@ -25,7 +25,7 @@
 1. install [fabric for 26.1.2](https://fabricmc.net/use/installer/).
 2. Install [fabric API](https://modrinth.com/mod/fabric-api/versions?g=26.1.2) & [fabric language kotlin](https://modrinth.com/mod/fabric-language-kotlin).
 3. download the latest jar from the [releases page](https://github.com/mizly/aether/releases).
-4. put oxygen & the other jar files into `.minecraft/mods`.
+4. put aether & the other jar files into `.minecraft/mods`.
 5. launch minecraft (make sure you're on the fabric profile).
 
 > `/aether` opens the GUI.........
