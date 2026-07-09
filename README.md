@@ -28,6 +28,11 @@
 4. put aether & the other jar files into `.minecraft/mods`.
 5. launch minecraft (make sure you're on the fabric profile).
 
+## contributing
+Community contributions are welcome, so feel free to make a PR!
+
+To contribute to language packs, see https://github.com/iceangelsaint/aether-language-packs
+
 > `/aether` opens the GUI.........
 > 
 > https://discord.com/invite/BZxsfAcYYW
