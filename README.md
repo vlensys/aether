@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/src/main/resources/assets/aether/icons/logo.svg" width="128" alt="Oxygen logo">
+  <img src="/src/main/resources/assets/aether/icons/logo_blue.svg" width="128" alt="Aether logo">
 </p>
 
 <h1 align="center">aether</h1>
@@ -15,7 +15,7 @@
 
 ## features
 
-- **farming qol** - auto farming, pest destroyer, auto pest exchange, auto sprayanator
+- **farming qol** - auto farming, pest destroyer, auto pest exchange, auto spray, auto loadouts, auto greenhouse, auto composter ... + many more!
 - **visual** - nick hider, purse spoofer, sawdust spoofer
 - **failsafes** - too many failsafes to list
 ---
@@ -25,8 +25,15 @@
 1. install [fabric for 26.1.2](https://fabricmc.net/use/installer/).
 2. Install [fabric API](https://modrinth.com/mod/fabric-api/versions?g=26.1.2) & [fabric language kotlin](https://modrinth.com/mod/fabric-language-kotlin).
 3. download the latest jar from the [releases page](https://github.com/mizly/aether/releases).
-4. put oxygen & the other jar files into `.minecraft/mods`.
+4. put aether & the other jar files into `.minecraft/mods`.
 5. launch minecraft (make sure you're on the fabric profile).
 
+## contributing
+Community contributions are welcome, so feel free to make a PR!
+
+To contribute to language packs, see https://github.com/iceangelsaint/aether-language-packs
+
 > `/aether` opens the GUI.........
+> 
+> https://discord.com/invite/BZxsfAcYYW
 ---
