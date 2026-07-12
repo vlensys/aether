@@ -142,7 +142,7 @@ public class SDSMushroomMacro extends AbstractMacro {
                 holdKeys(mc, true, false, false, false, true, false, false);
                 break;
             case RIGHT:
-                holdKeys(mc, false, true, false, false, true, false, false);
+                holdKeys(mc, false, true, false, true, true, false, false);
                 break;
             case BACKWARD:
                 holdKeys(mc, false, false, false, true, true, false, false);
