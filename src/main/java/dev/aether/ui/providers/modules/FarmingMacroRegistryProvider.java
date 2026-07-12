@@ -68,6 +68,13 @@ public final class FarmingMacroRegistryProvider extends AbstractModulesRegistryP
                             AetherConfig.save();
                         })
                         .visibleWhen(FarmingMacroRegistryProvider::isBaseSShapeFarmType))
+                .add(new ToggleSetting("D/S+A?",
+                        () -> AetherConfig.MACRO_SDS_MUSHROOM_REVERSE_LANE.get(),
+                        v -> {
+                            AetherConfig.MACRO_SDS_MUSHROOM_REVERSE_LANE.set(isSdsMushroomFarmType() && v);
+                            AetherConfig.save();
+                        })
+                        .visibleWhen(FarmingMacroRegistryProvider::isSdsMushroomFarmType))
                 .add(new ToggleSetting(AetherLang.localize("Disable /setspawn"),
                         () -> AetherConfig.MACRO_DISABLE_SETSPAWN.get(),
                         v -> {
@@ -183,6 +190,14 @@ public final class FarmingMacroRegistryProvider extends AbstractModulesRegistryP
     private static boolean isBaseSShapeFarmType() {
         try {
             return FarmType.valueOf(AetherConfig.FARM_TYPE.get()) == FarmType.S_SHAPE;
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
+    private static boolean isSdsMushroomFarmType() {
+        try {
+            return FarmType.valueOf(AetherConfig.FARM_TYPE.get()) == FarmType.SDS_MUSHROOM;
         } catch (Exception ignored) {
             return false;
         }

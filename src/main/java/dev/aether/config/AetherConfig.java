@@ -834,6 +834,8 @@ public final class AetherConfig {
         public static final BooleanEntry SQUEAKY_MOUSEMAT = Config.bool("squeakyMousemat", false);
         /** Hold W while farming rows (A/D + W) instead of only strafing (A/D). */
         public static final BooleanEntry MACRO_HOLD_W_WHILE_FARMING = Config.bool("macroHoldWWhileFarming", false);
+        /** Reverse SDS mushroom lane movement from A/S/S+D to D/S/S+A. */
+        public static final BooleanEntry MACRO_SDS_MUSHROOM_REVERSE_LANE = Config.bool("macroSdsMushroomReverseLane", false);
         /** Skip all /setspawn calls used by farming macro support flows. */
         public static final BooleanEntry MACRO_DISABLE_SETSPAWN = Config.bool("macroDisableSetspawn", false);
         /** Use configured lane boundaries to switch direction before movement stalls. */
