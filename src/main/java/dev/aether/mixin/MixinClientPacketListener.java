@@ -23,6 +23,7 @@ public class MixinClientPacketListener {
     @Inject(method = "onDisconnect", at = @At("HEAD"))
     private void onDisconnect(DisconnectionDetails details, CallbackInfo ci) {
         AetherBootstrapHooks.onUnexpectedDisconnect();
+        AetherBootstrapHooks.onServerDisconnected(details.reason());
     }
 
     // Server pushed a resource pack. Report accepted + loaded without downloading or

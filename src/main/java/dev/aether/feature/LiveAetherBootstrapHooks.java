@@ -59,6 +59,16 @@ public final class LiveAetherBootstrapHooks implements AetherBootstrapHooks.Feat
     }
 
     @Override
+    public void onServerDisconnected(Component reason) {
+        dev.aether.modules.clip.ClipManager.onServerDisconnect(reason);
+    }
+
+    @Override
+    public void onFrameRendered() {
+        dev.aether.modules.clip.ClipManager.captureFrame();
+    }
+
+    @Override
     public Screen maybeCreateConfirmScreen(BooleanConsumer callback, Component title, Component message) {
         if (StreamerModeManager.isEnabled() || !AetherConfig.CUSTOM_UI_ENABLED.get()) {
             return null;

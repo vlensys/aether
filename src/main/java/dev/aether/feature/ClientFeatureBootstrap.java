@@ -22,7 +22,9 @@ import dev.aether.renderer.FunRenderer;
 import dev.aether.renderer.PositionHighlighter;
 import dev.aether.ui.MainGUI;
 import dev.aether.ui.theme.Theme;
+import dev.aether.modules.clip.ClipManager;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 import net.minecraft.client.Minecraft;
 
@@ -48,6 +50,7 @@ public final class ClientFeatureBootstrap {
         ProfitManager.loadDaily();
         MacroStateManager.syncFromConfig();
         AutoCarnivalManager.syncFromConfig(Minecraft.getInstance());
+        ClipManager.syncFromConfig();
         ReconnectScheduler.clearState();
         HudRegistry.register();
         MacroWorkerThread.getInstance().start();
@@ -78,6 +81,8 @@ public final class ClientFeatureBootstrap {
         ClientLifecycleEvents.CLIENT_STOPPING.register(PerformanceModeManager::stop);
         ClientLifecycleEvents.CLIENT_STOPPING.register(client -> AetherConfig.flush());
 
+        ClientTickEvents.END_CLIENT_TICK.register(ClipManager::tick);
+
         AetherScreenHooks.register();
         AetherChatEvents.register();
         AetherCommandRegistrar.register();
@@ -92,6 +97,7 @@ public final class ClientFeatureBootstrap {
         // un-committed time from being lost on exit.
         dev.aether.modules.session.DailyFarmTimeTracker.persistNow();
         PerformanceModeManager.stop(Minecraft.getInstance());
+        ClipManager.shutdown();
         NotificationManager.clearAll();
         HudRegistry.reset();
         PathVisualizer.clear();
@@ -105,6 +111,7 @@ public final class ClientFeatureBootstrap {
         FailsafeSoundManager.refresh();
         MacroStateManager.syncFromConfig();
         AutoCarnivalManager.syncFromConfig(Minecraft.getInstance());
+        ClipManager.syncFromConfig();
 
         Minecraft client = Minecraft.getInstance();
         PerformanceModeManager.stop(client);

@@ -262,6 +262,7 @@ public final class FailsafeManager {
         FailsafeColourFlashManager.trigger();
         FailsafeSoundManager.playConfiguredSound(action);
         FailsafeWindowFocusManager.bringWindowToFront();
+        dev.aether.modules.clip.ClipManager.onFailsafe();
     }
 
     public static FailsafeAction getInventorySlotChangedAction() {

@@ -639,6 +639,12 @@ public final class AetherConfig {
         public static final BooleanEntry CLOSE_GAME_ON_DAILY_THRESHOLD = Config.bool("closeGameOnDailyThreshold",
                         false);
 
+        public static final BooleanEntry CLIP_ENABLED = Config.bool("clipEnabled", false);
+        public static final BooleanEntry CLIP_ON_FAILSAFE = Config.bool("clipOnFailsafe", true);
+        public static final BooleanEntry CLIP_ON_BAN = Config.bool("clipOnBan", true);
+        public static final IntEntry CLIP_LENGTH_SECONDS = Config.integer("clipLengthSeconds", 30).range(5, 100);
+        public static final StringEntry CLIP_FFMPEG_PATH = Config.string("clipFfmpegPath", "");
+
         // -- REWARP --------------------------------------------------------
         
         public static final BooleanEntry ENABLE_REWARP = Config.bool("enableRewarp", false);
