@@ -19,5 +19,4 @@ build/
 .gstack/
 mappings/
 .gradle/tools/
-CLAUDE.md 
 .claude/
