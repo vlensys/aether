@@ -97,14 +97,19 @@ that services file** — it is not auto-discovered otherwise. `/aether` opens th
 
 ## Core Rules
 
-**Commits**
+### Commits
 
-- Commit frequently.
-- Format: `type: description` (e.g. `feat: add user auth`, `fix: null check on login`)
-- Do not add yourself as co-author
+	•	Commit frequently. Small, focused commits over large batched ones.
+	•	Format: type: description (e.g. feat: add user auth, fix: null check on login)
+	•	Common types: feat, fix, refactor, chore, docs, test, perf
+	•	Do not add yourself as co-author
 
-**Code**
+### Code Comments
 
-Do not use comments that are over two lines long. There isn't a huge need to add comments to literally every singular thing
+	•	Keep comments to two lines max — if it needs more, the code probably needs a better name or the logic needs simplifying instead.
+	•	Comment why, not what. The code already says what it does.
+	•	Bad: // increment counter above counter++
+	•	Good: // retry once cause api flakes on cold start
 
-Also always kill the gradlew processes once youre done compiling
+	•	Skip comments on self-explanatory code (getters, simple loops, obvious assignments).
+	•	Do comment: non-obvious business logic, workarounds for bugs/quirks, magic numbers, anything a future reader would ask “wait, why?” about.
